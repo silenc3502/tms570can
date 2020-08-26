@@ -85,7 +85,7 @@ void canMessageNotification(canBASE_t *node, uint32_t messageBox)
     switch(rx_data[0])
     {
         case 13:
-            data = rx_data[1] * 1000 + rx_data[2] * 100 + rx_data[3] * 10 + rx_data[4];
+            data = (rx_data[1] - 0x30) * 1000 + (rx_data[2] - 0x30) * 100 + (rx_data[3] -0x30) * 10 + rx_data[4] - 0x30;
             data *= 1.25;
             break;
         default:
